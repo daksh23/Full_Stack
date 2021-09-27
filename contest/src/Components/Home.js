@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 function Home() {
 
@@ -6,10 +7,16 @@ function Home() {
   const [EDate, setEDate] = useState('');
   const [Desc, setDesc] = useState('');
 
+  const addLog = async (s, e , d) => {
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND}/api/log/addlog`,
+       { "sdate":s, "edate":e, "desc":d });
+      alert("log entry added")
+  }
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    console.log(SDate, EDate, Desc);
+    addLog(SDate,EDate, Desc );
   }
 
     return (
