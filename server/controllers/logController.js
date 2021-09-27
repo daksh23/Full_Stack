@@ -12,7 +12,7 @@ exports.getList = async (req, res) => {
    
         con.query("SELECT * FROM records ORDER BY startDate DESC", function (err, result, fields) {
           if (err) throw err;
-          console.log(result);
+        
           return res.json({
             status: true,
             result
@@ -22,7 +22,6 @@ exports.getList = async (req, res) => {
 }
 
 exports.addLog = async (req, res) => {
-    console.log(req.body)
     const sDate = req.body.sdate.slice(0, 19).replace(':', ' ');
 
     const eDate = req.body.edate.slice(0, 19).replace(':', ' ');
