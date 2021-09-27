@@ -12,31 +12,29 @@ function Home() {
     console.log(SDate, EDate, Desc);
   }
 
-  //var date = moment().format('YYYY-MM-DDTHH:mm');
-
     return (
       <div>
         <form onSubmit={handleSubmit}>
         
           <label> Start Date </label><br />
           <input 
-            value="yyyy-MM-ddThh:mm"
+            value={SDate}
             type="datetime-local" 
             name="s_date" 
             onChange={e => setSDate(e.target.value)}/>
           <br />
           
           <label> End Date </label><br />
-          <input 
-            value="datetime" 
+          <input
+            value={EDate}
             type="datetime-local" 
             name="e_date" 
             onChange={e => setEDate(e.target.value)}/>
           <br />
   
           <label> Description </label><br />
-          <textarea 
-            value="desc" 
+          <textarea
+            value={Desc}
             type="textarea" 
             name="e_date" 
             onChange={e => setDesc(e.target.value)}/>
